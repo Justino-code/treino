@@ -1,0 +1,189 @@
+# ============================================
+# .gitignore - Sistema de Classificação de Tosse
+# ============================================
+
+# 🐍 Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 📊 Dados e Modelos (NÃO versionar)
+dados/brutos/**/*           # Áudios originais - NUNCA versionar!
+dados/processados/**/*      # Dados processados
+modelos/**/*                # Modelos treinados - muito grandes
+!modelos/.gitkeep           # Exceto arquivo para manter pasta
+
+# 📈 Resultados e Logs
+resultados/**/*             # Resultados de treinamento
+!resultados/.gitkeep
+logs/**/*                   # Logs de execução
+!logs/.gitkeep
+
+# 🧪 Testes
+testes/audios/**/*          # Áudios de teste
+testes/resultados/**/*      # Resultados de teste
+!testes/.gitkeep
+
+# 🔧 Ambiente Virtual
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# 🛠️ IDEs e Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# 📦 PyCharm
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# 📝 Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# 🧹 Sistema Operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 🔥 TensorBoard
+tensorboard/
+events.*
+
+# 🗄️ Banco de Dados/SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# 📁 Cache e Temporários
+.cache/
+tmp/
+temp/
+*.tmp
+*.temp
+
+# 🔐 Configurações Sensíveis
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+config.yaml
+config.yml
+secrets.yaml
+credentials.json
+*.key
+*.pem
+*.p12
+
+# 📊 Dados de Treinamento (exemplos/teste pequenos podem ser versionados)
+# Para datasets de exemplo pequenos (menos de 10MB), use:
+# !dados/exemplos/
+# !dados/sample/
+
+# 🎵 Áudios de Exemplo (se quiser versionar alguns exemplos)
+# Crie uma pasta separada:
+# dados/exemplos/  # Pode ser versionada
+# !dados/exemplos/normal/sample_*.wav
+# !dados/exemplos/bronquite/sample_*.wav  
+# !dados/exemplos/pneumonia/sample_*.wav
+
+# ============================================
+# REGRAS ESPECÍFICAS PARA O PROJETO
+# ============================================
+
+# Modelos muito grandes (>50MB)
+*.h5
+*.hdf5
+*.tflite
+*.pb
+*.pkl
+*.joblib
+
+# Mas permitir modelos de exemplo pequenos
+!modelos/exemplo_modelo_pequeno.h5     # Se quiser um exemplo < 10MB
+
+# Arquivos de checkpoint do treinamento
+checkpoint*
+*.index
+*.meta
+*.data-*
+
+# Arquivos do TensorFlow
+events.out.tfevents.*
+*.ckpt*
+
+# ============================================
+# EXCEÇÕES PARA DESENVOLVIMENTO
+# ============================================
+
+# Durante desenvolvimento, você pode querer versionar:
+# !dados/rotulos.csv                     # CSV de exemplo pequeno
+# !dados/brutos/.gitkeep                 # Para manter estrutura
+# !modelos/arquitetura_exemplo.json      # Arquitetura de exemplo
+
+# ============================================
+# TAMANHOS LIMITE RECOMENDADOS
+# ============================================
+
+# Git não lida bem com arquivos > 100MB
+# Use git-lfs para arquivos grandes ou não versionar
+
+# Limitar tamanho de arquivos (opcional - descomente se quiser)
+# *.[wW][aA][vV]                         # Áudios WAV geralmente são grandes
+# *.[mM][pP]3                            # MP3 também podem ser grandes
+# *.[mM][pP]4
+# *.[fF][lL][aA][cC]
+
+# ============================================
+# ARQUIVOS TEMPORÁRIOS DE BACKUP
+# ============================================
+
+*_backup_*
+backup_*
+*.backup
+*.old
+*.bak
+
+# ============================================
+# NOTE: Para versionar alguns dados de exemplo
+# ============================================
+
+# Se quiser incluir alguns exemplos pequenos para teste:
+# !dados/brutos/normal/exemplo_pequeno.wav
+# !dados/brutos/bronquite/exemplo_pequeno.wav
+# !dados/brutos/pneumonia/exemplo_pequeno.wav
+
+# Mas lembre-se: áudios reais de pacientes NUNCA devem ser versionados!
