@@ -1,0 +1,24 @@
+# config.yaml - Configurações do sistema
+
+dados:
+  csv_path: "dados/rotulos.csv"
+  audio_dir: "dados/brutos"
+  classes: ["normal", "bronquite", "pneumonia"]
+  test_size: 0.2  # 20% para teste
+  val_size: 0.1   # 10% para validação
+
+preprocessamento:
+  sr: 16000      # Taxa de amostragem
+  duracao: 3.0   # Duração em segundos
+  remover_ruido: true
+
+modelo:
+  tipo: "cnn_basico"  # Opções: cnn_basico, cnn_avancado, mobilenet
+  learning_rate: 0.0001
+  batch_size: 16
+  epochs: 50
+
+treinamento:
+  balancear_classes: true
+  data_augmentation: true
+  early_stopping: true
