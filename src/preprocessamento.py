@@ -16,7 +16,7 @@ import librosa
 import soundfile as sf
 import scipy.signal as signal
 from scipy.ndimage import median_filter
-from typing import Dict, List, Tuple, Optional, Union
+from typing import Dict, List, Tuple, Optional, Union, Any
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import warnings
