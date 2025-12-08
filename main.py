@@ -104,7 +104,7 @@ class SistemaTosseCLI:
             # Importar módulos de treinamento
             sys.path.append('src')
             
-            from treinar import treinar_modelo_completo
+            from src.treinar import treinar_modelo_completo
             
             # Configurações
             config = {

@@ -27,12 +27,21 @@ warnings.filterwarnings('ignore')
 from datetime import datetime
 from pathlib import Path
 import shutil
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
 
-# Importar módulos personalizados
-from . import utilitarios
-from . import preprocessamento
-from . import extrair_caracteristicas
-from . import modelo
+# Importar módulos personalizados - usar importações absolutas
+try:
+    from src import utilitarios
+    from src import preprocessamento
+    from src import extrair_caracteristicas
+    from src import modelo
+except ImportError:
+    # Se não conseguir importação relativa, tentar como módulo direto
+    import utilitarios
+    import preprocessamento
+    import extrair_caracteristicas
+    import modelo
 
 # Configurar logging
 logger = logging.getLogger(__name__)
